@@ -9,10 +9,10 @@ php72.zip:
 php73.zip:
 	docker run --rm -v $(ROOT_DIR):/opt/layer lambci/lambda:build-nodejs8.10 /bin/bash /opt/layer/build-php73.sh
 
-upload: php71.zip
+upload: php72.zip
 	./upload.sh
 
-publish: php71.zip
+publish: php72.zip
 	./publish.sh
 
 clean:
