@@ -14,7 +14,7 @@ yum install -y httpd
 yum install -y postgresql-devel
 yum install -y libargon2-devel
 
-yum install -y --disablerepo="*" --enablerepo="remi,remi-php72" php php-mbstring php-pdo php-mysql php-pgsql
+yum install -y --disablerepo="*" --enablerepo="remi,remi-php72" php php-mbstring php-pdo php-mysql php-pgsql php-xml php-pecl-zip
 
 
 mkdir /tmp/layer
@@ -33,6 +33,7 @@ done
 cp /usr/lib64/libedit.so.0 lib/
 cp /usr/lib64/libargon2.so.0 lib/
 cp /usr/lib64/libpq.so.5 lib/
+cp /usr/lib64/libzip.so.5 lib/
 
 cp -a /usr/lib64/php lib/
 
