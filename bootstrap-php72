@@ -173,9 +173,11 @@ while (true) {
   $response['body'] = '';
 
   curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($ch, $header) use (&$response) {
-    if (preg_match('/HTTP\/1.1 (\d+) .*/', $header, $matches)) {
-      $response['statusCode'] = intval($matches[1]);
-      return strlen($header);
+    if (preg_match('/HTTP\/1.1 ((\d+) .*)/', $header, $matches)) {
+      $response['statusCode'] = intval($matches[2]);
+      $response['statusDescription'] = trim($matches[1]);
+      $response['isBase64Encoded'] = false;
+        return strlen($header);
     }
 
     if (!preg_match('/:\s*/', $header)) {
